@@ -28,14 +28,14 @@
 
 @implementation CameraViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [imageCamera startCameraCapture];
-}
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [imageCamera stopCameraCapture];
-}
+//- (void)viewWillAppear:(BOOL)animated {
+//    [super viewWillAppear:animated];
+////    [imageCamera startCameraCapture];
+//}
+//- (void)viewWillDisappear:(BOOL)animated {
+//    [super viewWillDisappear:animated];
+//    [imageCamera stopCameraCapture];
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -52,10 +52,11 @@
     self.actionCollectionView.collectionViewLayout = layout;
 
     
-    imageCamera=[[GPUImageStillCamera alloc] initWithSessionPreset:AVCaptureSessionPresetPhoto cameraPosition:AVCaptureDevicePositionBack];
+    imageCamera=[[GPUImageStillCamera alloc] initWithSessionPreset:AVCaptureSessionPreset1920x1080 cameraPosition:AVCaptureDevicePositionBack];
     //AVCaptureDevicePositionBack为后摄像头 front为前置摄像头
     //AVCaptureSessionPreset1920x1080为分辨率 另外还支持多种分辨率
     //AVCaptureSessionPreset1280x720 等等等等
+    // AVCaptureSessionPresetPhoto
     
     imageCamera.outputImageOrientation=UIInterfaceOrientationPortrait;
     
