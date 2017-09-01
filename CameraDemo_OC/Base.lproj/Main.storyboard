@@ -27,7 +27,7 @@
                                 <state key="normal" title="Open Camera"/>
                                 <connections>
                                     <action selector="openCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0ui-Tm-rTB"/>
-                                    <segue destination="Omw-n8-EWQ" kind="show" animates="NO" id="Wgl-c5-cd8"/>
+                                    <segue destination="Omw-n8-EWQ" kind="show" id="Wgl-c5-cd8"/>
                                 </connections>
                             </button>
                         </subviews>

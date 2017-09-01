@@ -10,7 +10,7 @@
 #import "EditImageViewController.h"
 #import "CollectionViewCell.h"
 
-@interface CameraViewController () <UICollectionViewDelegate, UICollectionViewDataSource>{
+@interface CameraViewController () <UICollectionViewDelegate, UICollectionViewDataSource, EditImageVCDelegate>{
     GPUImageStillCamera *imageCamera;
     GPUImageOutput<GPUImageInput> *filter;
     GPUImageView *iv;
@@ -28,6 +28,15 @@
 
 @implementation CameraViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [imageCamera startCameraCapture];
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [imageCamera stopCameraCapture];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -43,7 +52,7 @@
     self.actionCollectionView.collectionViewLayout = layout;
 
     
-    imageCamera=[[GPUImageStillCamera alloc] initWithSessionPreset:AVCaptureSessionPreset1920x1080 cameraPosition:AVCaptureDevicePositionBack];
+    imageCamera=[[GPUImageStillCamera alloc] initWithSessionPreset:AVCaptureSessionPresetPhoto cameraPosition:AVCaptureDevicePositionBack];
     //AVCaptureDevicePositionBack为后摄像头 front为前置摄像头
     //AVCaptureSessionPreset1920x1080为分辨率 另外还支持多种分辨率
     //AVCaptureSessionPreset1280x720 等等等等
@@ -260,8 +269,14 @@
     // Pass the selected object to the new view controller.
     
     imageVC = (EditImageViewController *)segue.destinationViewController;
+    imageVC.delegate = self;
     
-    
+}
+
+#pragma mark - EditImageVCDelegate
+
+- (void)editDismiss {
+    [imageCamera startCameraCapture];
 }
 
 

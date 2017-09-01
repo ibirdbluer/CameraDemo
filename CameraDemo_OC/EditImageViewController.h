@@ -8,9 +8,17 @@
 
 #import "ViewController.h"
 
+@protocol EditImageVCDelegate <NSObject>
+
+- (void)editDismiss;
+
+@end
+
 @interface EditImageViewController : ViewController
 
 @property (nonatomic, strong) UIImage *image;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
+@property (assign, nonatomic) id<EditImageVCDelegate>delegate;
 
 @end

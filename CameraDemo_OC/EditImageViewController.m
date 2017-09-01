@@ -24,7 +24,11 @@
     UIImageWriteToSavedPhotosAlbum(self.image, nil, nil, nil);
 }
 - (IBAction)cancel:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(editDismiss)]) {
+        [self.delegate editDismiss];
+    }
     [self.navigationController popViewControllerAnimated:true];
+    
 }
 
 - (void)didReceiveMemoryWarning {
