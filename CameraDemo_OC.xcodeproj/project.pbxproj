@@ -437,6 +437,7 @@
 				4F54B8381F594309004DC736 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -46,7 +46,6 @@
         <!--Camera View Controller-->
         <scene sceneID="jMc-A6-SOl">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rhp-UT-dDI" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Omw-n8-EWQ" customClass="CameraViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="S46-f0-MXI"/>
@@ -96,7 +95,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXS-mR-GNa">
-                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -136,6 +135,15 @@
                                     <action selector="updateFilter:" destination="Omw-n8-EWQ" eventType="valueChanged" id="p2W-8q-vi7"/>
                                 </connections>
                             </slider>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AiB-g3-eXG">
+                                <rect key="frame" x="16" y="20" width="81" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="闪光灯：off"/>
+                                <state key="selected" title="闪光灯：on"/>
+                                <connections>
+                                    <action selector="torchSwitch:" destination="Omw-n8-EWQ" eventType="touchUpInside" id="3td-qn-gRR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -150,8 +158,10 @@
                     <connections>
                         <outlet property="actionCollectionView" destination="3ZG-H9-kqi" id="4VE-WK-00u"/>
                         <outlet property="slider" destination="bmN-BH-DXS" id="swo-um-Bd7"/>
+                        <outlet property="torchButton" destination="AiB-g3-eXG" id="s35-5e-xKY"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rhp-UT-dDI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1759.2" y="36.431784107946029"/>
         </scene>
